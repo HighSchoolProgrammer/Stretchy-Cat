@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stretchy Cat</title>
+    <style>
+        #cat {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: url('cat-face.png'); /* Insert the image path here */
+            background-size: cover;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="cat"></div>
+
+    <script>
+        document.addEventListener('mousemove', function(event) {
+            var cat = document.getElementById('cat');
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+
+            var catX = cat.getBoundingClientRect().left;
+            var catY = cat.getBoundingClientRect().top;
+
+            var offsetX = (mouseX - catX) / 10;
+            var offsetY = (mouseY - catY) / 10;
+
+            cat.style.width = (200 + offsetX) + 'px';
+            cat.style.height = (200 + offsetY) + 'px';
+        });
+    </script>
+</body>
+</html>
